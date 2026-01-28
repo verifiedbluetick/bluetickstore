@@ -454,3 +454,42 @@ h1 {
 html {
   -webkit-overflow-scrolling: touch;
 }
+
+/* ================================
+   COLOR SOFTENING OVERRIDES
+   ================================ */
+
+/* Background gradients – less loud */
+body {
+  filter: brightness(0.9) saturate(108%);
+}
+
+/* Soften moving radial blobs */
+body {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 110, 180, 0.42), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(120, 160, 255, 0.42), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(255, 190, 220, 0.35), transparent 50%),
+    linear-gradient(135deg, #ecefff, #f3dfe9);
+}
+
+/* Glow behind login card – calmer */
+.login-card::after {
+  opacity: 0.32;
+  filter: blur(85px);
+}
+
+/* Glass reflection slightly muted */
+.login-card::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.48),
+    rgba(255, 255, 255, 0.07) 45%,
+    rgba(255, 255, 255, 0.24)
+  );
+}
+
+/* Logo gradient – slightly less punch */
+.logo {
+  filter: saturate(90%);
+}
