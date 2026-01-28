@@ -1,0 +1,228 @@
+:root {
+  --bg: #fafafa;
+  --card: #ffffff;
+  --border: #dbdbdb;
+  --text: #262626;
+  --muted: #8e8e8e;
+  --blue: #0095f6;
+
+  --insta-grad: linear-gradient(
+    45deg,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+}
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.hidden {
+  display: none;
+}
+
+/* CENTER */
+.center {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/* LOGIN CARD */
+.login-card {
+  width: 350px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 32px 28px;
+  border-radius: 10px;
+}
+
+/* PHOTO */
+.photo-wrapper {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #fafafa;
+  position: relative;
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: white;
+}
+
+.photo-wrapper label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.photo-wrapper input {
+  display: none;
+}
+
+/* BRAND */
+.logo {
+  font-size: 36px;
+  font-weight: 800;
+  background: var(--insta-grad);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.logo.small {
+  font-size: 22px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.note {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 9px;
+  margin-top: 8px;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #b2b2b2;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 14px;
+  border: none;
+  background: var(--blue);
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* MODAL (hidden by default) */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  display: none;
+  place-items: center;
+  z-index: 100;
+}
+
+.modal.show {
+  display: grid;
+}
+
+.modal-card {
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  animation: pop 0.25s ease-out;
+}
+
+@keyframes pop {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* FEED */
+.feed {
+  max-width: 470px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.post {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.orb {
+  height: 240px;
+  background: radial-gradient(
+    circle at top,
+    #bfdbfe,
+    #60a5fa,
+    #2563eb
+  );
+}
+
+.post-info {
+  padding: 14px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.price {
+  color: var(--blue);
+  font-weight: 600;
+  margin: 6px 0 10px;
+}
+
+.buy {
+  background: var(--insta-grad);
+}
+
+.condition {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.4;
+}
+

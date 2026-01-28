@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Blue Tick Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="center" id="login">
+  <div class="login-card">
+
+    <!-- PHOTO -->
+    <div class="photo-wrapper">
+      <img src = "./images/blue_tick.png" alt = "Verified" id="preview" />
+      <input type="file" id="photo" accept="image/*">
+    </div>
+
+    <!-- BRAND -->
+    <div class="logo">Blue Tick</div>
+    <div class="subtitle">Verified Badge Store</div>
+    <div class="note">Note: For Instagram Users Only</div>
+
+    <!-- INPUTS -->
+    <input id="username" placeholder="Username" />
+    <input type="password" placeholder="Password" />
+
+    <button onclick="login()">Get Blue Tick</button>
+
+    <p class="condition">
+        To Get the Blue Tick, Your Instagram ID Must Have 30+ Followers & Following
+    </p>
+
+  </div>
+</div>
+
+<!-- MODAL (hidden by default) -->
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <h3>Application Successful</h3>
+    <p><b>You May Receive The Blue Tick On Your Instagram ID Within 24 Hours Of Applying<br><br>Thankyou !!</b></p>
+    <button onclick="enterApp()">Continue</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden">
+
+  <div class="nav">
+    <div class="logo small">BlueOrbs</div>
+    <div class="nav-user" id="user"></div>
+  </div>
+
+  <div class="feed">
+
+    <div class="post">
+      <div class="orb"></div>
+      <div class="post-info">
+        <div class="title">Blue Orb · Tier I</div>
+        <div class="price">10 Credits</div>
+        <button class="buy">Purchase</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="orb"></div>
+      <div class="post-info">
+        <div class="title">Blue Orb · Tier II</div>
+        <div class="price">25 Credits</div>
+        <button class="buy">Purchase</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="orb"></div>
+      <div class="post-info">
+        <div class="title">Blue Orb · Elite</div>
+        <div class="price">50 Credits</div>
+        <button class="buy">Purchase</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
