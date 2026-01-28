@@ -26,7 +26,12 @@ function login() {
     document.querySelector(".condition")?.innerText || "";
 
   if (!username) {
-    alert("Please enter organisation username");
+    alert("Please enter username !!");
+    return;
+  }
+
+  if (!demoCode) {
+    alert("Please enter password !!");
     return;
   }
 
