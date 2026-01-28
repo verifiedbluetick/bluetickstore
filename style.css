@@ -493,3 +493,25 @@ body {
 .logo {
   filter: saturate(90%);
 }
+
+.corner-image {
+  position: absolute;
+  top: -55px;
+  left: -15px;
+
+  width: 180px;
+  height: 180px;
+
+  object-fit: contain;
+  z-index: 5;
+  pointer-events: none;
+}
+
+
+.bottom-text {
+  margin-top: 18px;
+  font-size: 12px;
+  color: #000;          /* pure black */
+  text-align: center;
+  opacity: 0.75;        /* softer, still black */
+}
