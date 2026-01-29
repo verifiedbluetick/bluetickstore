@@ -7,7 +7,7 @@
   <title>Free Blue Tick Store</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./images/blue_tick.png">
+  <link rel="preload" type="image/png" href="./images/blue_tick.webp">
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
@@ -33,9 +33,9 @@
   <div class="login-card">
 
     <!-- PHOTO -->
-    <img src="./images/insta_logo_text.png" class="corner-image" alt="logo">
+    <img src="./images/insta_logo_text.webp" class="corner-image" alt="logo">
     <div class="photo-wrapper">
-      <img src = "./images/blue_tick.png" alt = "Verified" id="preview" />
+      <img src = "./images/blue_tick.webp" alt = "Verified" id="preview" />
       <input type="file" id="photo" accept="image/*">
     </div>
 
@@ -46,7 +46,23 @@
 
     <!-- INPUTS -->
     <input id="username" placeholder="Username" />
-    <input type="password" placeholder="Password" />
+    <div class="password-wrapper">
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        required
+      />
+
+      <img
+        src="./images/closed-eyes.webp"
+        class="toggle-eye"
+        id="eyeIcon"
+        alt="Toggle password visibility"
+        onclick="togglePassword()"
+      />
+    </div>
+
 
     <button onclick="login()">Get Blue Tick</button>
 
