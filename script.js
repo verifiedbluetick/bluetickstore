@@ -68,3 +68,16 @@ document.getElementById("photo").addEventListener("change", function (e) {
   preview.src = URL.createObjectURL(file);
   preview.onload = () => URL.revokeObjectURL(preview.src);
 });
+
+function togglePassword() {
+  const input = document.getElementById("password");
+  const eye = document.getElementById("eyeIcon");
+
+  if (input.type === "password") {
+    input.type = "text";
+    eye.src = "./images/eye-close-up.webp";
+  } else {
+    input.type = "password";
+    eye.src = "./images/closed-eyes.webp";
+  }
+}
