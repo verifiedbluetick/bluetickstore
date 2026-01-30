@@ -75,9 +75,10 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding-bottom: 80px;        /* ⬅ pushes content UP */
+  padding-top: 120px;        /* ⬅ pushes content UP */
   box-sizing: border-box;
 }
+
 
 /* LOGIN CARD */
 /* =========================================
